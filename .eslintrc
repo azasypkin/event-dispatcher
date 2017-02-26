@@ -1,0 +1,68 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "impliedStrict": true
+    }
+  },
+
+  "rules": {
+    "comma-style": ["error", "last"],
+    "curly": ["error"],
+    "eol-last": ["error", "always"],
+    "max-len": ["error", { "code": 120, "tabWidth": 2 }],
+    "new-cap": ["error"],
+    "no-alert": ["error"],
+    "no-caller": ["error"],
+    "no-console": ["off"],
+    "no-debugger": ["error"],
+    "no-undef": ["error"],
+    "no-unused-vars": ["error", { "vars": "all", "args": "after-used" }],
+    "no-use-before-define": ["error", { "functions": false, "classes": true }],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "never"],
+    "guard-for-in": ["error"],
+    "valid-jsdoc": ["error",
+      {
+        "prefer": {
+          "return": "return"
+        },
+        "preferType": {
+          "String": "string",
+          "Number": "number",
+          "Boolean": "boolean",
+          "object": "Object",
+          "array": "Array"
+        },
+        "requireReturn": false,
+        "requireParamDescription": false,
+        "requireReturnDescription": false
+      }
+    ],
+    "eqeqeq": ["error"],
+    "no-case-declarations": ["error"],
+    "no-else-return": ["error"],
+    "no-extra-bind": ["error"],
+    "no-implicit-coercion": ["error", { "boolean": false }],
+    "no-multi-spaces": ["error"],
+    "no-throw-literal": ["error"],
+    "no-warning-comments": ["error", { "terms": ["todo", "@todo:", "fixme",
+      "xxx"] }],
+    "arrow-parens": ["error", "always"],
+    "arrow-spacing": ["error"],
+    "no-var": ["error"],
+    "object-shorthand": ["error"],
+    "prefer-const": ["error"],
+    "prefer-template": ["error"]
+  },
+
+  "env": {
+    "es6": true,
+    "browser": true,
+    "worker": true
+  },
+
+  "extends": ["eslint:recommended"]
+}
