@@ -4,7 +4,6 @@
 
 const eslint = require('gulp-eslint');
 const gulp = require('gulp');
-const karma = require('karma');
 const rename = require('gulp-rename');
 const runSequence = require('run-sequence');
 const webpack = require('webpack-stream');
@@ -21,16 +20,6 @@ gulp.task('lint', () => {
     .pipe(eslint.format())
     // To have the process exit with an error code (1) on lint error, return the stream and pipe to failAfterError last.
     .pipe(eslint.failAfterError());
-});
-
-/**
- * Run the tests with Karma.
- */
-gulp.task('test', function (done) {
-  new karma.Server({
-    configFile: `${__dirname}/karma.conf.js`,
-    singleRun: true
-  }, done).start();
 });
 
 /**
