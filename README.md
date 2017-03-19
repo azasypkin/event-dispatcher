@@ -1,6 +1,7 @@
 # Event Dispatcher
 
 [![Build Status](https://travis-ci.org/azasypkin/event-dispatcher.svg?branch=master)](https://travis-ci.org/azasypkin/event-dispatcher)
+[![codecov.io](http://codecov.io/github/azasypkin/event-dispatcher/coverage.svg?branch=master)](http://codecov.io/github/azasypkin/event-dispatcher?branch=master)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://raw.githubusercontent.com/azasypkin/event-dispatcher/master/LICENSE)
 
 This file provides a helper to add custom events to any object.

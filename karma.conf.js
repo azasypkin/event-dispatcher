@@ -20,14 +20,26 @@ module.exports = function(config) {
       'tests/*.js': ['webpack', 'sourcemap']
     },
 
+    coverageReporter: {
+      type : process.env.CONTINUOUS_INTEGRATION ? 'lcovonly' : 'html',
+      dir : 'coverage/'
+    },
+
     webpack: {
-      devtool: 'inline-source-map'
+      devtool: 'inline-source-map',
+      module: {
+        loaders: [{
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader'
+        }]
+      }
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['mocha', 'coverage'],
 
     // web server port
     port: 9876,

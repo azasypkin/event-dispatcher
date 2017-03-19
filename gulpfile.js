@@ -15,7 +15,7 @@ const DIST_FOLDER_PATH = 'bin/';
  * Lint all Javascript files with ESLint.
  */
 gulp.task('lint', () => {
-  return gulp.src(['**/*.js', '!node_modules/**', '!bin/**'])
+  return gulp.src(['**/*.js', '!node_modules/**', '!bin/**', '!coverage/**'])
     .pipe(eslint())
     .pipe(eslint.format())
     // To have the process exit with an error code (1) on lint error, return the stream and pipe to failAfterError last.
