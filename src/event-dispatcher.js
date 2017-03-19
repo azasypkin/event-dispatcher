@@ -182,9 +182,7 @@ export default class EventDispatcher {
         throw new Error(`Object to mix into already has "${method}" property defined!`);
       }
 
-      if (method !== 'constructor') {
-        target[method] = dispatcher[method].bind(dispatcher);
-      }
+      target[method] = dispatcher[method].bind(dispatcher);
     }, dispatcher);
 
     return target;
