@@ -42,6 +42,12 @@ describe('EventDispatcher >', function() {
       assert.isTrue(typeof mixedEventTarget.ownMethod === 'function');
       assert.isTrue(typeof mixedRestrictedEventTarget.ownMethod === 'function');
     });
+
+    it('mixin throws if target already has any of reserved methods', function() {
+      ['on', 'once', 'off', 'offAll', 'emit', 'hasListeners'].forEach((method) => {
+        assert.throws(() => EventDispatcher.mixin({ [method]: () => {}}));
+      });
+    });
   });
 
   /** @test {EventDispatcher#on} */
@@ -255,6 +261,29 @@ describe('EventDispatcher >', function() {
         eventTarget.emit('event');
 
         sinon.assert.calledOnce(handler);
+      }
+    });
+
+    it('silently ignores not registered handler', function() {
+      for (const eventTarget of [inheritedEventTarget, mixedEventTarget]) {
+        const handler = sinon.stub();
+
+        eventTarget.on('event', handler);
+        eventTarget.emit('event');
+
+        sinon.assert.calledOnce(handler);
+
+        // Just silently return for unknown event.
+        eventTarget.off('unknown-event', handler);
+        eventTarget.emit('event');
+
+        sinon.assert.calledTwice(handler);
+
+        eventTarget.off('event', handler);
+        eventTarget.emit('event');
+
+        // No handler is called this time.
+        sinon.assert.calledTwice(handler);
       }
     });
 
