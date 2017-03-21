@@ -2,7 +2,7 @@
   "name": "event-dispatcher",
   "version": "1.0.0",
   "description": "Simple ES6 pure Javascript event dispatcher.",
-  "main": "src/event-dispatcher.js",
+  "main": "./bin/event-dispatcher.es2016.js",
   "directories": {
     "test": "tests"
   },
